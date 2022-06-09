@@ -23,28 +23,27 @@ const Bttn = styled.button`
 `
 
 
-function TodoAdd({updateTodo}) {
+function TodoAdd({todos, updateTodo}) {
     
-    const [todos,setTodos] = useState({
+    const [todo,setTodo] = useState({
         id: null,
-        name: "",
+        text: "",
         isDone: false,
     })
 
     const addTodo = (e) => {
         const { name, value} = e.target;
-        setTodos({
-        id: todos.length-1,
+        setTodo({
+        id: todos.length+1,
         text: value,
-        isDone: false
+        isDone: true
         })
     }
     function change(){
         // alert("todo added!")
-        updateTodo(todos)//Parameter === function
+        updateTodo(todo)//Parameter === function
     }
 
-    console.log(todos)
     
     // const {value} = e.target
 
@@ -54,7 +53,7 @@ function TodoAdd({updateTodo}) {
             <Input 
             type="text" 
             name="text"  
-            value={todos.text}
+            value={todo.text}
             onChange={addTodo}>
             </Input><Bttn onClick={change}>+ Add Todo</Bttn>
         </Wrapper>

@@ -19,9 +19,13 @@ const SonOfAWrapper = styled.div`
     width: 100%
 `
 const Blob = styled.div`
+    text-overflow: clip;
+    white-space: nowrap;
+    overflow: hidden; 
+    position:relative;
     background-color: #CCCC99;
     height: 100%;
-    width: 30%;
+    width: 50%;
     border: 3px solid black;
     border-radius: 15px;
 `
@@ -32,7 +36,7 @@ const SonOfASonOfAWrapper = styled.div`
 function Todo() {
 
     
-    const [todos,setTodos] = useState([{isDone: false, text:'hello', id: 1}])
+    const [todos,setTodos] = useState([])
 
     // const [age,setage] = useState(0)
     // const [student,setName] = useState({  
@@ -42,8 +46,11 @@ function Todo() {
     const addTodo = (todo) => {
         setTodos([...todos, todo])
     }
-    const removeTodo = () => {
-        setTodos([])
+    const removeTodo = (id) => {
+        console.log(id);
+        const newTodos = todos.filter((todo) => todo.id != id);
+        setTodos(newTodos);
+        // setTodos([])
     }
     return(
             <Wrapper>
@@ -58,9 +65,7 @@ function Todo() {
                         <TodoList todos={todos} deleteTodo={removeTodo}></TodoList>
                         <br></br>
                         <hr size="2" width="90%" color="black"></hr>
-                        <SonOfASonOfAWrapper>
-                            {/* <TodoItem todos={todos} deleteTodo={removeTodo}></TodoItem> */}
-                        </SonOfASonOfAWrapper>
+                     
                     </Blob>
                 </SonOfAWrapper>
             </Wrapper>

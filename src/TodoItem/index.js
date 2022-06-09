@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 import React, { useState } from "react";
 
 const Wrapper = styled.div`
@@ -19,21 +19,28 @@ const Rick = styled.button`
 `
 const Check = styled.button`
     background-size: cover;
-    height: 40px;
-    width: 40px;
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSU
-    hEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEWNz+8yQIFhAAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAA
-    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC')
+    height: 20px;
+    width: 20px;
+    border-radius: 150px:
+    border: 3px solid #4A7A4A;
+    ${(props) =>
+    props.isDone &&
+    css`
+        background-color: #4A7A4A;
+        border: 3px solid #4A7A4A;
+    `
+    }
 `
 function TodoItem({todo,deleteTodo}) {
     
 
     function magic(){
-        deleteTodo()
+        deleteTodo(todo.id)
     }
     return(
         <Wrapper>
             <Check isDone={todo.isDone} />
+
             <h1>{todo.text}</h1>
             <Rick onClick={magic}></Rick>
         </Wrapper>
