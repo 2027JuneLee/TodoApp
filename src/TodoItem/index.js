@@ -15,31 +15,40 @@ const Rick = styled.button`
     height: 50px;
     background-size: cover;
     width: 50px;
-    border-radius: 5px;
-`
+    border-radius: 5px; 
+` 
 const Check = styled.button`
     background-size: cover;
     height: 20px;
     width: 20px;
     border-radius: 150px:
     border: 3px solid #4A7A4A;
+
+
     ${(props) =>
     props.isDone &&
-    css`
+    css` 
         background-color: #4A7A4A;
-        border: 3px solid #4A7A4A;
+        // border: 3px solid #4A7A4A;
     `
-    }
+
+}
 `
-function TodoItem({todo,deleteTodo}) {
+function TodoItem({todo,deleteTodo,bye}) {
     
 
     function magic(){
         deleteTodo(todo.id)
     }
+    function DONE(){
+        bye(todo.id)
+        // if(todo.isDone == true){
+        //     {props}.isDone = false
+        // }
+    }
     return(
         <Wrapper>
-            <Check isDone={todo.isDone} />
+            <Check isDone={todo.isDone} onClick={DONE}/>
 
             <h1>{todo.text}</h1>
             <Rick onClick={magic}></Rick>

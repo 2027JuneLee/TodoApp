@@ -26,8 +26,8 @@ const Bttn = styled.button`
 function TodoAdd({todos, updateTodo}) {
     
     const [todo,setTodo] = useState({
-        id: null,
-        text: "",
+        id: 1,
+        text: "try searching: rickroll",
         isDone: false,
     })
 
@@ -36,7 +36,7 @@ function TodoAdd({todos, updateTodo}) {
         setTodo({
         id: todos.length+1,
         text: value,
-        isDone: true
+        isDone: false
         })
     }
     function change(){

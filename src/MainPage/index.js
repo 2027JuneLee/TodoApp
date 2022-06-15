@@ -33,7 +33,7 @@ const SonOfASonOfAWrapper = styled.div`
     height: 45%;
     width: 100%;
 `
-function Todo() {
+function Todo(props) {
 
     
     const [todos,setTodos] = useState([])
@@ -52,6 +52,17 @@ function Todo() {
         setTodos(newTodos);
         // setTodos([])
     }
+    const changeIsDone = (id) => {
+        const currentTodo = todos[id-1];
+        console.log(currentTodo)
+        if(currentTodo.isDone == false){
+            currentTodo.isDone = true
+        }
+        else{
+            currentTodo.isDone = false
+        }
+        setTodos([...todos]);
+    }
     return(
             <Wrapper>
                 <SonOfAWrapper>
@@ -62,7 +73,7 @@ function Todo() {
                         <br></br>
                         <TodoAdd todos={todos} updateTodo={addTodo}></TodoAdd>
                         <br></br>
-                        <TodoList todos={todos} deleteTodo={removeTodo}></TodoList>
+                        <TodoList todos={todos} deleteTodo={removeTodo} bye={changeIsDone}></TodoList>
                         <br></br>
                         <hr size="2" width="90%" color="black"></hr>
                      

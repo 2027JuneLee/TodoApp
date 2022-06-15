@@ -10,11 +10,11 @@ const Wrapper = styled.div`
     flex-direction: column;
     `
 
-function TodoList({todos, deleteTodo}) {
+function TodoList({todos, deleteTodo, bye}) {
     return(
             <Wrapper>
                 {todos.map((todo) => (
-                    <TodoItem todo={todo} deleteTodo={deleteTodo} ></TodoItem>
+                    <TodoItem todo={todo} deleteTodo={deleteTodo} bye={bye}></TodoItem>
                 ))}
                 <h5></h5>
             </Wrapper>
